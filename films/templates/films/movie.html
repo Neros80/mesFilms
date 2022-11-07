@@ -2,17 +2,24 @@
 
 
 {% block content %}
-<div class="container-fluid col-md-6">
-    <h1> {{movie.title}} </h1>
-    <img class="image" src="{{ movie.thumbnail.url }}" alt="{{movie.title}}">
-    <p>Realisateur: {{movie.director}} </p>
-    <p>pays du film : {{movie.country.name}}</p>
-    <p>Note : {{movie.note}} /5 </p>
-    <p>Studio : {{movie.studio.name}} </p>
-    <p>Pays du Studio {{movie.studio.country}}</p>
-    <p>vue au {{movie.hall.name}} : de {{movie.hall.city}} le : {{movie.date}} </p>
-    <h2>Synopsis:</h2>
-    <p> {{movie.synopsis}} </p>
+<button class="btn btn-light ">
+    <a href="{% url 'index' %}">menu</a>
+</button>
+
+<div class="container-fluid rounded col-md-6 bg">
+    <h1 class="movie--title"> {{movie.title}} </h1>
+    <img class="rounded movie--image" src="{{ movie.thumbnail.url }}" alt="{{movie.title}}">
+    <div class="info">
+        <p>Réalisateur : {{movie.director}} </p>
+        <p>pays du film : {{movie.country.name}}</p>
+        <p>Note : {{movie.note}} /5 </p>
+        <p>Studio : {{movie.studio.name}} ({{movie.studio.country}}) </p>
+        <p>Cinéma : {{movie.hall.name}} de {{movie.hall.city}} le : {{movie.date}} </p>
+    </div>
+    <div class="text">
+        <h2>Synopsis:</h2>
+        <p> {{movie.synopsis}} </p>
+    </div>
 </div>
 
 {% endblock %}

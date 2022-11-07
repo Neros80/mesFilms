@@ -3,18 +3,20 @@
 {% block content %}
 
 
+<header>
+    <div class="containeur-fluid title">
+        <h1> Mes Films </h1>
+    </div>
+</header>
 
-<div class="containeur-fluid title">
-    <h1> Mes Films </h1>
-</div>
 <div class="container">
 
     <div class="row">
         {% for movie in movies %}
         <a class="col-md-3 rounded movie__card" href="{% url 'movie' movie.slug %}">
-            <h2> {{movie.title}} </h2>
-            <img class="image" src="{{ movie.thumbnail.url }}" alt="{{movie.title}}">
-            <p>Realisateur: {{movie.director}} </p>
+            <h2 class="card--title"> {{movie.title}} </h2>
+            <img class="card--image" src="{{ movie.thumbnail.url }}" alt="{{movie.title}}">
+            <p>De: {{movie.director}} </p>
             <p>Note : {{movie.note}} /5 </p>
         </a>
 
