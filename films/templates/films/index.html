@@ -1,11 +1,27 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1> Test de coucou </h1>
 
-{% for product in products %}
- <h2> {{product.title}} </h2>
- <img src="{{ product.thumbnail.url }}" alt="{{product.title}}" style="max-width: 250px;">
-{% endfor %}
+
+
+<div class="containeur-fluid title">
+    <h1> Mes Films </h1>
+</div>
+<div class="container">
+
+    <div class="row">
+        {% for movie in movies %}
+        <a class="col-md-3 rounded movie__card" href="{% url 'movie' movie.slug %}">
+            <h2> {{movie.title}} </h2>
+            <img class="image" src="{{ movie.thumbnail.url }}" alt="{{movie.title}}">
+            <p>Realisateur: {{movie.director}} </p>
+            <p>Note : {{movie.note}} /5 </p>
+        </a>
+
+        {% endfor %}
+    </div>
+
+</div>
+
 
 {% endblock %}
