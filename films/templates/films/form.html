@@ -3,7 +3,11 @@
 {% block content %}
 
 <h2>Ajouter un films</h2>
-<form method="POST">
+
+{% for hall in halls %}
+    <p>{{ hall.name }}</p>
+{% endfor %}
+<!-- <form method="POST">
     {% csrf_token %}
     <p>
         <label for="title">Titre</label>
@@ -34,16 +38,17 @@
         <label for="pet-select">Choose a pet:</label>
 
         <select name="halls" id="hall-select">
-            {% for hall in halls %}
+
             <option value="">--Please choose an option--</option>
-            <option value="{{hall.name}}">{{hall.name}}</option>
-            {% endfor %}
+
+            <option value="">{{hall.name}}</option>
+
 
         </select>
 
     </p>
 
     <button type="submit">S'inscrire</button>
-</form>
+</form> -->
 
 {% endblock %}

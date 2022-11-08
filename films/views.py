@@ -8,14 +8,15 @@ from films.models import Movie, Hall
 def index(request):
     movie = Movie.objects.all(),
     return render(request, 'films/index.html', context={"movies": movie})
+def form(request):
+    halls = Hall.objects.all(),
+    return render(request, 'films/form.html', context={"halls":halls} )
 
 def movie_detail(request, slug):
     movie = get_object_or_404(Movie, slug=slug)
     return render(request, 'films/movie.html', context={"movie":movie} )
 
-def form(request):
-    hall = Hall.objects.all()
-    return render(request, 'films/form.html', context={"halls":hall} )
+
 
 class FormView(View):
     
