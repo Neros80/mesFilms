@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Ajouter un films</h2>
+<form method="POST">
+    {% csrf_token %}
+    <p>
+        <label for="title">Titre</label>
+        <input id="title" type="text" name="title">
+    </p>
+    <p>
+        <label for="slug">slug</label>
+        <input id="slug" type="text" name="slug">
+    </p>
+    <p>
+        <label for="date">Date</label>
+        <input id="date" type="date" name="date">
+    </p>
+    <p>
+        <label for="director">Réalisateur</label>
+        <input id="director" type="text" name="director">
+    </p>
+    <p>
+        <label for="synopsis">Synopsis</label>
+        <input id="synopsis" type="textarea" name="synopsis">
+    </p>
+    <p>
+        <label for="thumbnail">Affiche</label>
+        <input id="thumbnail" type="file" name="thumbnail">
+    </p>
+    <p>
+
+        <label for="pet-select">Choose a pet:</label>
+
+        <select name="halls" id="hall-select">
+            {% for hall in halls %}
+            <option value="">--Please choose an option--</option>
+            <option value="{{hall.name}}">{{hall.name}}</option>
+            {% endfor %}
+
+        </select>
+
+    </p>
+
+    <button type="submit">S'inscrire</button>
+</form>
+
+{% endblock %}
