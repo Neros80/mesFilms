@@ -1,0 +1,20 @@
+{% extends 'base.html' %} {% block content %}
+
+<h2>Ajouter un Cinema</h2>
+
+<button class="btn btn-light">
+  <a href="{% url 'index' %}">menu</a>
+</button>
+
+<button class="btn btn-light">
+  <a href="{% url 'create' %}">Retour</a>
+</button>
+
+<div class="form">
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %} {{ form.as_p }}
+
+    <button class="btn--send" type="submit">Ajouter</button>
+  </form>
+</div>
+{% endblock %}

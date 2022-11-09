@@ -5,6 +5,16 @@
   <a href="{% url 'index' %}">menu</a>
 </button>
 
+<button class="btn btn-light">
+  <a href="{% url 'hall' %}">Ajouter un cinéma</a>
+</button>
+<button class="btn btn-light">
+  <a href="{% url 'studio' %}">Ajouter un studio</a>
+</button>
+<button class="btn btn-light">
+  <a href="{% url 'country' %}">Ajouter un Pays</a>
+</button>
+
 <div class="form">
 <form method="post" enctype="multipart/form-data">
   {% csrf_token %}
