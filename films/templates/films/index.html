@@ -3,6 +3,11 @@
 <header>
   <div class="containeur-fluid title">
     <h1>Mes Films</h1>
+    {% if user.is_authenticated %}
+    <button class="btn btn-light">
+      <a href="{% url 'create' %}">Ajout</a>
+    </button>
+    {% endif %}
   </div>
 </header>
 

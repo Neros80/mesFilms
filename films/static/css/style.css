@@ -95,5 +95,38 @@ button {
 }
 
 .form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: white;
+    border: 3px solid rgb(0, 0, 0);
+    margin: auto;
+    width: 33%;
+    border-radius: 25px;
+    background-color: rgb(117, 116, 116);
+
+}
+
+.btn--send{
+    display: flex;
+    justify-content: center;
+    border-radius: 50px;
+    margin: auto;
+    margin-bottom: 1rem;
+    padding: 0 2rem;
+    align-items: center;
+    font-size: 2rem;
+    background-color: rgb(0, 255, 13);
+    color: rgb(215, 215, 215);
+}
+
+ul{
+    visibility: hidden;
+}
+
+p{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }

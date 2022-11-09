@@ -1,5 +1,6 @@
 from django.urls import reverse
 from django.db import models
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 class Hall(models.Model):
     name = models.CharField(max_length=128)
@@ -32,8 +33,8 @@ class Movie(models.Model):
     synopsis = models.TextField(blank=True)
     thumbnail = models.ImageField(upload_to="images", blank=True, null=True)
     actif = models.BooleanField(default=True)
-    upDate = models.DateTimeField(null=True, blank=True)
-    note = models.FloatField(default = 0)
+    upDate = models.DateTimeField(null=True, auto_now_add=True, blank=True)
+    note = models.FloatField(default = 0 , validators=[MinValueValidator(0), MaxValueValidator(5)])
     hall = models.ForeignKey(Hall, on_delete=models.DO_NOTHING)
     country = models.ForeignKey(Country, on_delete=models.DO_NOTHING)
     studio = models.ForeignKey(Studio, on_delete=models.DO_NOTHING)
