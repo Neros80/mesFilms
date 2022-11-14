@@ -1,5 +1,6 @@
 from django.urls import reverse
 from django.db import models
+from django.db.models.functions import Left
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 class Hall(models.Model):
@@ -16,13 +17,16 @@ class Country(models.Model):
     def __str__(self):
         return f"{self.name} ({self.code})"
 
-
 class Studio(models.Model):
     name = models.CharField(max_length=128)
     country = models.ForeignKey(Country, on_delete=models.DO_NOTHING)
     
     def __str__(self):
         return f"{self.name}"
+    def movie_count(self):
+        return Movie.objects.filter(studio=self).count()
+
+
 
 
 class Movie(models.Model):
@@ -45,3 +49,5 @@ class Movie(models.Model):
     def get_absolute_url(self):
         return reverse("movie", kwargs={"slug": self.slug})
     
+    def get_introduction(self,limit):
+        return self.synopsis[:limit]

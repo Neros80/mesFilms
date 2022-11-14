@@ -2,7 +2,7 @@
 from django.shortcuts import render, get_object_or_404
 from .form import MovieForm, StudioForm, HallForm, CountryForm
 
-from films.models import Movie, Hall
+from films.models import Movie, Hall, Studio
 
 
 
@@ -13,6 +13,7 @@ def index(request):
 def movie_detail(request, slug):
     movie = get_object_or_404(Movie, slug=slug)
     return render(request, 'films/movie.html', context={"movie":movie} )
+
 
 def form(request):
     halls = Hall.objects.all()
@@ -33,7 +34,7 @@ def studio_create(request):
     if form.is_valid():
         form.save()
         form = StudioForm()
-        
+
     return render(request, 'films/studio.html', {'form':form})
 
 def hall_create(request):
