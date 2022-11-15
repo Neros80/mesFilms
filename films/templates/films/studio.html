@@ -1,17 +1,19 @@
-{% extends 'base.html' %} {% block content %}
-<h2>Ajouter un Sutdio</h2>
-<button class="btn btn-light">
-  <a href="{% url 'index' %}">menu</a>
-</button>
-<button class="btn btn-light">
-  <a href="{% url 'create' %}">Retour</a>
-</button>
+{% extends 'base.html' %}
+{% block header %}
+  Ajouter un Sutdio
+{% endblock %}
 
-<div class="form">
-  <form method="post" enctype="multipart/form-data">
-    {% csrf_token %} {{ form.as_p }}
 
-    <button class="btn--send" type="submit">Ajouter</button>
-  </form>
-</div>
+{%block nav %}
+  <a href="{% url 'index' %}" class="nav-link text-dark">Acceuil</a>
+  <a href="{% url 'create' %}" class="nav-link text-dark">Retour</a>
+{% endblock %}
+
+{% block content %}
+  <div class="form">
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %} {{ form.as_p }}
+      <button class="btn--send" type="submit">Ajouter</button>
+    </form>
+  </div>
 {% endblock %}

@@ -11,7 +11,19 @@
     <title>Mes films</title>
 </head>
 
+<header>
+    <h1 class="display-1 bg-dark d-flex text-light justify-content-center">
+    {% block header %}
+    {% endblock %}
+    </h1>
+</header>
+
 <body>
+    <nav class="nav bg-light justify-content-center">
+    {% block nav%}
+
+    {% endblock %}
+    </nav>
 
     {% block content %}
 

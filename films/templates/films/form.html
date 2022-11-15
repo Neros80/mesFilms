@@ -1,19 +1,20 @@
 {% extends 'base.html' %}
-{% block content %}
-<h2>Ajouter un films</h2>
-<button class="btn btn-light ">
-  <a href="{% url 'index' %}">menu</a>
-</button>
 
-<button class="btn btn-light">
-  <a href="{% url 'hall' %}">Ajouter un cinéma</a>
-</button>
-<button class="btn btn-light">
-  <a href="{% url 'studio' %}">Ajouter un studio</a>
-</button>
-<button class="btn btn-light">
-  <a href="{% url 'country' %}">Ajouter un Pays</a>
-</button>
+{% block header %}
+Ajouter un Film
+{% endblock %}
+
+
+<!-- nav bar -->
+{% block nav %}
+  <a href="{% url 'index' %}" class="nav-link text-dark">Acceuil</a>
+  <a href="{% url 'hall' %}"class="nav-link text-dark">Ajouter un cinéma</a>
+  <a href="{% url 'studio' %}" class="nav-link text-dark">Ajouter un studio</a>
+  <a href="{% url 'country' %}" class="nav-link text-dark">Ajouter un Pays</a>
+{% endblock %}
+
+
+{% block content %}
 
 <div class="form">
 <form method="post" enctype="multipart/form-data">

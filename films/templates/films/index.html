@@ -1,32 +1,37 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}
 
-<header>
-  <div class="containeur-fluid title">
-    <h1>Mes Films</h1>
-    {% if user.is_authenticated %}
-    <button class="btn btn-light">
-      <a href="{% url 'create' %}">Ajout</a>
-    </button>
-    {% endif %}
+{% block header %}
+  Mes Films
+{% endblock%}
+
+{% block nav %}
+  {% if user.is_authenticated %}
+    <a href="{% url 'create' %}" class="nav-link text-dark">Ajout</a>
+  {% endif %}
+{% endblock %}
+
+
+{% block content %}
+  <div class="container py-5 bg-light">
+    <div class="row">
+      <div class="col-md-4 col-sm-6">
+        <div class="card md-4 shadow-sm">
+          {% for movie in movies %} 
+          <a href="{% url 'movie' movie.slug %}">
+            <h2 class="card--title">{{movie.title}}</h2>
+            <img
+            class="w-100"
+            src="{{movie.thumbnail.url}}"
+            alt="{{movie.title}}"
+            />
+            <div class="card-body">
+              <p class="card-text">De: {{movie.director}}</p>
+              <p class="card-text">Note : {{movie.note}} /5</p>
+            </div>
+          </a>
+        {% endfor %}
+        </div>
+      </div>
+    </div>     
   </div>
-</header>
-
-<div class="container">
-  <div class="row">
-    {% for movie in movies %}
-    <a class="col-md-3 rounded movie__card" href="{% url 'movie' movie.slug %}">
-      <h2 class="card--title">{{movie.title}}</h2>
-      <img
-        class="card--image"
-        src="{{ movie.thumbnail.url }}"
-        alt="{{movie.title}}"
-      />
-      <p>De: {{movie.director}}</p>
-      <p>Note : {{movie.note}} /5</p>
-    </a>
-
-    {% endfor %}
-  </div>
-</div>
-
 {% endblock %}
