@@ -7,21 +7,21 @@ Ajouter un Film
 
 <!-- nav bar -->
 {% block nav %}
-  <a href="{% url 'index' %}" class="nav-link text-dark">Acceuil</a>
-  <a href="{% url 'hall' %}"class="nav-link text-dark">Ajouter un cinéma</a>
-  <a href="{% url 'studio' %}" class="nav-link text-dark">Ajouter un studio</a>
-  <a href="{% url 'country' %}" class="nav-link text-dark">Ajouter un Pays</a>
+  <a href="{% url 'index' %}" class="nav-link text-light">Acceuil</a>
+  <a href="{% url 'hall' %}"class="nav-link text-light">Ajouter un cinéma</a>
+  <a href="{% url 'studio' %}" class="nav-link text-light">Ajouter un studio</a>
+  <a href="{% url 'country' %}" class="nav-link text-light">Ajouter un Pays</a>
 {% endblock %}
 
 
 {% block content %}
 
-<div class="form">
+<div class="container d-flex py-5 bg-light flex-column justify-content-center align-items-center">
 <form method="post" enctype="multipart/form-data">
   {% csrf_token %}
   {{ form.as_p }}
 
-  <button class="btn--send" type="submit">Ajouter</button>
+  <button class="btn btn-lg btn-secondary" type="submit">Ajouter</button>
 </form>
 </div>
 {% endblock %}

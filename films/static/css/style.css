@@ -9,9 +9,19 @@
 body {
     height: 100vh;
 }
+.card--img{
+    width: 100%;
+    align-items: center;
+}
 
 a{
     text-decoration: none;
+}
+
+a:hover{
     color: black;
 }
 
+ul{
+    visibility: hidden;
+}

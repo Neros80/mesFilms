@@ -1,14 +1,14 @@
 {% extends 'base.html' %} {% block header %} Ajouter un Pays {% endblock %}
 {% block nav %}
-<a href="{% url 'index' %}" class="nav-link text-dark">Acceuil</a>
-<a href="{% url 'create' %}" class="nav-link text-dark">Retour</a>
+<a href="{% url 'index' %}" class="nav-link text-light">Acceuil</a>
+<a href="{% url 'create' %}" class="nav-link text-light">Retour</a>
 {% endblock %} {% block content %}
 
-<div class="form">
+<div class="container d-flex py-5 bg-light flex-column justify-content-center align-items-center rounded-bottom">
   <form method="post" enctype="multipart/form-data">
     {% csrf_token %} {{ form.as_p }}
 
-    <button class="btn--send" type="submit">Ajouter</button>
+    <button class="btn btn-lg btn-secondary" type="submit">Ajouter</button>
   </form>
 </div>
 {% endblock %}

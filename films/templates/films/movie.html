@@ -4,25 +4,27 @@
 {% endblock %}
 
 {% block nav %}
-  <a href="{% url 'index' %}" class="nav-link text-dark">Acceuil</a>
+  <a href="{% url 'index' %}" class="btn btn-sm nav-link text-light">Acceuil</a>
 {% endblock %}
 
 {% block content %}
-  <div class="container-fluid rounded col-md-6 bg">
-    <h1 class="movie--title">{{movie.title}}</h1>
+  <div class="container-fluid bg-dark text-light rounded col-md-6 bg">
+    <h2 class="display-4 d-flex text-darck justify-content-center">{{movie.title}}</h2>
+    <div class="row">
       <img
-        class="rounded movie--image"
+        class="col-md-6 rounded m-3 p-0"
         src="{{ movie.thumbnail.url }}"
         alt="{{movie.title}}"
       />
-      <div class="info">
+      <div class="info col-md-4 pt-5">
         <p>Réalisateur : {{movie.director}}</p>
         <p>pays du film : {{movie.country.name}}</p>
         <p>Note : {{movie.note}} /5</p>
         <p>Studio : {{movie.studio.name}} ({{movie.studio.country}})</p>
         <p>Cinéma : {{movie.hall.name}} de {{movie.hall.city}} le : {{movie.date}}</p>
       </div>
-      <div class="text">
+    </div>
+      <div class="text p-3">
         <h2>Synopsis:</h2>
         <p>{{movie.synopsis}}</p>
       </div>
